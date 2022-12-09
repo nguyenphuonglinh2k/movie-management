@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "node src/server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "product": "NODE_ENV=production node src/server.js"
+    "start": "next start"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.11.0",

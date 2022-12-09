@@ -12,9 +12,7 @@ const Login = () => {
   return (
     <Box className={clsx("center-root", classes.root)}>
       <Box className={classes.inputWrapper}>
-        <Typography variant="h5" className={classes.title}>
-          Sign In
-        </Typography>
+        <Typography variant="h5">Sign In</Typography>
         <Stack mt={3} mb={2} spacing={2}>
           <AppTextField placeholder="Enter email" required />
           <AppTextField placeholder="Password" required />

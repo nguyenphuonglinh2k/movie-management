@@ -7,7 +7,11 @@ const MLHeader = () => {
 
   return (
     <AppBar id={HEADER_ID} position="sticky" className={classes.root} elevation={0}>
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 50, height: 50 }} />
+      <Avatar
+        alt="Remy Sharp"
+        src="https://templates.iqonic.design/streamit/dashboard/html/assets/images/user/1.jpg"
+        sx={{ width: 50, height: 50 }}
+      />
     </AppBar>
   );
 };

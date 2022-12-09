@@ -19,8 +19,12 @@ const Drawer = ({ open }) => {
       return route.includes(router.pathname);
     } else {
       const routerNoParams = route.split("?")?.[0];
-      return router.pathname.includes(routerNoParams);
+      return router.pathname === routerNoParams;
     }
+  };
+
+  const handleNavigate = path => {
+    router.push(path);
   };
 
   return (
@@ -42,7 +46,7 @@ const Drawer = ({ open }) => {
           <Fragment key={index}>
             <ListItemButton
               className={clsx(classes.listItemButtonRoot, { [classes.listItemButtonSelected]: onMatchingRoute(path) })}
-              href={path}
+              onClick={() => handleNavigate(path)}
             >
               <ListItemText primary={label} classes={{ primary: classes.listItemTextPrimary }} />
             </ListItemButton>
