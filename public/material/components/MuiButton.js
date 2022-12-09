@@ -4,9 +4,6 @@ import typography from "../typography";
 const mediumStyle = {
   padding: "8px 31px",
   borderRadius: 6,
-};
-
-const containedMediumStyle = {
   minWidth: 180,
 };
 
@@ -17,14 +14,15 @@ export default {
     root: {
       textTransform: "none",
       fontSize: 16,
+      boxShadow: "none",
       ...mediumStyle,
       ...textSizeMedium,
     },
 
     contained: {
-      ...containedMediumStyle,
       border: "none",
     },
+
     containedPrimary: {
       backgroundColor: palette.error.dark,
       "&:hover": {

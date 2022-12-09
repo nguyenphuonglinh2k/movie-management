@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Paper, Typography, Box, Button, Avatar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
-import Role from "components/common/Role";
+import { ConfirmDeleteDialog, Role } from "components";
 
 const User = ({ data }) => {
   const classes = useStyles();
@@ -12,10 +12,12 @@ const User = ({ data }) => {
   const [isOpenDeleteDialog, toggleOpenDeleteDialog] = useReducer(currentStatus => !currentStatus, false);
   const [hasQuickAction, setHasQuickAction] = useState(false);
 
-  // const onCloseConfirmDeleteDialog = () => {
-  //   toggleOpenDeleteDialog(false);
-  //   setHasQuickAction(false);
-  // };
+  const onCloseConfirmDeleteDialog = () => {
+    toggleOpenDeleteDialog(false);
+    setHasQuickAction(false);
+  };
+
+  const handleDeleteUser = () => {};
 
   return (
     <Box
@@ -40,12 +42,13 @@ const User = ({ data }) => {
         </Button>
       </Paper>
 
-      {/* <ConfirmDeleteDialog
+      <ConfirmDeleteDialog
         open={isOpenDeleteDialog}
         title="Delete User"
         name={name}
         onClose={onCloseConfirmDeleteDialog}
-      /> */}
+        onDelete={handleDeleteUser}
+      />
     </Box>
   );
 };
