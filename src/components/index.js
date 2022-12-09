@@ -1,5 +1,9 @@
 // Common
 import AppTextField from "./common/AppTextField";
 import AppHead from "./common/AppHead";
+import SearchBar from "./common/SearchBar";
 
-export { AppTextField, AppHead };
+// User screen
+import UserList from "./sn-users/UserList";
+
+export { AppTextField, AppHead, SearchBar, UserList };

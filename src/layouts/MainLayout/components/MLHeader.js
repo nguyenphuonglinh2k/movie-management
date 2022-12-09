@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     height: HEADER_HEIGHT,
     display: "flex",
     justifyContent: "flex-end",
+    alignItems: "center",
     flexDirection: "row",
     padding: theme.spacing(1),
     background: theme.palette.background.dark,

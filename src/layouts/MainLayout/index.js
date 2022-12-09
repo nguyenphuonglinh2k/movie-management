@@ -49,7 +49,7 @@ export const MAIN_ID = "MAIN_ID";
 const useStyles = makeStyles({
   main: {
     position: "relative",
-    minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+    height: `calc(100vh - ${HEADER_HEIGHT}px)`,
     width: "100%",
     overflow: "hidden",
   },
