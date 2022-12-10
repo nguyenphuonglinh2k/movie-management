@@ -15,6 +15,9 @@ import CommonDialogWithCloseIcon from "./dialog/CommonDialogWithCloseIcon";
 import UserList from "./sn-users/UserList";
 import CreateUserDialog from "./sn-users/CreateUserDialog";
 
+// Movie screen
+import MovieList from "./sn-movies/MovieList";
+
 export {
   AppTextField,
   AppHead,
@@ -27,4 +30,5 @@ export {
   CommonDialogWithCloseIcon,
   UserList,
   CreateUserDialog,
+  MovieList,
 };
