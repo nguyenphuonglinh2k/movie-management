@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { List, ListItemText, Paper, Box, IconButton, Typography, ListItemButton } from "@mui/material";
+import { List, ListItemText, Paper, Box, IconButton, Typography, ListItemButton, ListItemIcon } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 
 import { AppConstant, ImageConstant, PathConstant } from "const";
-import { MenuIcon } from "icons";
+import { HomeIcon, MenuIcon, UserIcon, VideoIcon } from "icons";
 import { useRouter } from "next/router";
 
 const Drawer = ({ open }) => {
@@ -42,12 +42,13 @@ const Drawer = ({ open }) => {
       </Box>
 
       <List component="nav" sx={{ mt: 2 }}>
-        {LIST.map(({ label, path }, index) => (
+        {LIST.map(({ label, path, icon }, index) => (
           <Fragment key={index}>
             <ListItemButton
               className={clsx(classes.listItemButtonRoot, { [classes.listItemButtonSelected]: onMatchingRoute(path) })}
               onClick={() => handleNavigate(path)}
             >
+              <ListItemIcon className={classes.icon}>{icon}</ListItemIcon>
               <ListItemText primary={label} classes={{ primary: classes.listItemTextPrimary }} />
             </ListItemButton>
           </Fragment>
@@ -63,14 +64,17 @@ const LIST = [
   {
     label: "Dashboard",
     path: PathConstant.ROOT,
+    icon: <HomeIcon sx={{ fontSize: 20 }} />,
   },
   {
     label: "Movies",
     path: PathConstant.MOVIES,
+    icon: <VideoIcon sx={{ fontSize: 20 }} />,
   },
   {
     label: "Users",
     path: PathConstant.USERS,
+    icon: <UserIcon sx={{ fontSize: 20 }} />,
   },
 ];
 
@@ -115,8 +119,14 @@ const useStyles = makeStyles(theme => ({
   listItemButtonSelected: {
     color: theme.palette.error.dark,
     borderRight: `3px solid ${theme.palette.error.dark}`,
+    "& $icon": {
+      color: theme.palette.error.dark,
+    },
   },
   listItemTextPrimary: {
     ...theme.typography.body1,
+  },
+  icon: {
+    paddingLeft: theme.spacing(0.75),
   },
 }));
