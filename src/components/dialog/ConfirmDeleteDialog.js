@@ -9,7 +9,7 @@ const ConfirmDeleteDialog = ({ title, name, onDelete, onClose, ...props }) => {
   const classes = useStyles();
 
   return (
-    <CommonDialog onClose={onClose} classes={{ paper: classes.root }} {...props}>
+    <CommonDialog onClose={onClose} {...props}>
       <DialogTitle className={classes.title}>{title}</DialogTitle>
       <DialogContent className={classes.content}>
         <Typography gutterBottom>
@@ -48,9 +48,6 @@ ConfirmDeleteDialog.defaultProps = {
 };
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    background: "#242424",
-  },
   title: {
     textAlign: "center",
   },

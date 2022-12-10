@@ -1,12 +1,14 @@
-import React from "react";
-import { Box, Container, Typography } from "@mui/material";
-import MainLayout from "layouts/MainLayout";
+import React, { useState } from "react";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { SearchBar, UserList } from "components";
 import clsx from "clsx";
+import MainLayout from "layouts/MainLayout";
+import { CreateUserDialog, SearchBar, UserList } from "components";
 
 const Users = () => {
   const classes = useStyles();
+
+  const [openDialog, setOpenDialog] = useState(false);
 
   return (
     <MainLayout>
@@ -16,12 +18,19 @@ const Users = () => {
             <Typography variant="h3" className={classes.title}>
               User Lists
             </Typography>
-            <SearchBar />
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <SearchBar />
+              <Button variant="contained" className={classes.button} onClick={() => setOpenDialog(true)}>
+                Add User
+              </Button>
+            </Stack>
           </Box>
 
           <UserList data={MOCK_USERS} className={classes.list} />
         </Box>
       </Container>
+
+      <CreateUserDialog open={openDialog} onClose={() => setOpenDialog(false)} />
     </MainLayout>
   );
 };
@@ -53,6 +62,10 @@ const useStyles = makeStyles(theme => ({
   },
   list: {
     padding: theme.spacing(2.5),
+  },
+  button: {
+    minWidth: 40,
+    height: 40,
   },
 }));
 

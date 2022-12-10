@@ -15,7 +15,7 @@ const Login = () => {
         <Typography variant="h5">Sign In</Typography>
         <Stack mt={3} mb={2} spacing={2}>
           <AppTextField placeholder="Enter email" required />
-          <AppTextField placeholder="Password" required />
+          <AppTextField placeholder="Password" type="password" required />
         </Stack>
         <Box className={classes.actions}>
           <Button variant="containedPrimary">Sign in</Button>

@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "90vw",
     boxShadow: "none",
     borderRadius: 16,
-    padding: theme.spacing(2, 3),
+    padding: theme.spacing(2.5, 3),
+    background: "#242424",
   },
   root: {
     "& .MuiBackdrop-root": {
