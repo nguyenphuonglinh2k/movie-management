@@ -2,27 +2,31 @@ import React from "react";
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
-
-import { ImageConstant } from "const";
+import { ImageConstant, PathConstant } from "const";
 import { AppTextField } from "components";
+import { NoSsr } from "@mui/core";
 
 const Login = () => {
   const classes = useStyles();
 
   return (
-    <Box className={clsx("center-root", classes.root)}>
-      <Box className={classes.inputWrapper}>
-        <Typography variant="h5">Sign In</Typography>
-        <Stack mt={3} mb={2} spacing={2}>
-          <AppTextField placeholder="Enter email" required />
-          <AppTextField placeholder="Password" type="password" required />
-        </Stack>
-        <Box className={classes.actions}>
-          <Button variant="containedPrimary">Sign in</Button>
-          <FormControlLabel control={<Checkbox className={classes.checkbox} />} label="Remember Me" />
+    <NoSsr>
+      <Box className={clsx("center-root", classes.root)}>
+        <Box className={classes.inputWrapper}>
+          <Typography variant="h5">Sign In</Typography>
+          <Stack mt={3} mb={2} spacing={2}>
+            <AppTextField placeholder="Enter email" required />
+            <AppTextField placeholder="Password" type="password" required />
+          </Stack>
+          <Box className={classes.actions}>
+            <Button variant="containedPrimary" href={PathConstant.ROOT}>
+              Sign in
+            </Button>
+            <FormControlLabel control={<Checkbox className={classes.checkbox} />} label="Remember Me" />
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </NoSsr>
   );
 };
 
