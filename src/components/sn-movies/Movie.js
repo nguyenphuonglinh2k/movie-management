@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 import { Paper, Typography, Box, Button, Avatar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
-import { ConfirmDeleteDialog, Role } from "components";
+import { ConfirmDeleteDialog, EditMovieDialog, Role } from "components";
 
 const Movie = ({ data }) => {
   const classes = useStyles();
   const { name, type, img } = data;
 
   const [isOpenDeleteDialog, toggleOpenDeleteDialog] = useReducer(currentStatus => !currentStatus, false);
+  const [isOpenEditDialog, toggleOpenEditDialog] = useReducer(currentStatus => !currentStatus, false);
+
   const [hasQuickAction, setHasQuickAction] = useState(false);
 
   const onCloseConfirmDeleteDialog = () => {
@@ -17,7 +19,14 @@ const Movie = ({ data }) => {
     setHasQuickAction(false);
   };
 
+  const onCloseConfirmEditDialog = () => {
+    toggleOpenEditDialog(false);
+    setHasQuickAction(false);
+  };
+
   const handleDeleteMovie = () => {};
+
+  const handleConfirmEditMovie = () => {};
 
   return (
     <Box
@@ -38,7 +47,7 @@ const Movie = ({ data }) => {
       >
         <Button
           variant="contained"
-          onClick={() => toggleOpenDeleteDialog(true)}
+          onClick={() => toggleOpenEditDialog(true)}
           className={clsx(classes.button, classes.editButton)}
         >
           Edit
@@ -50,11 +59,12 @@ const Movie = ({ data }) => {
 
       <ConfirmDeleteDialog
         open={isOpenDeleteDialog}
-        title="Delete User"
-        name={name}
+        title="Delete Movie"
+        name={`Movie ${name}`}
         onClose={onCloseConfirmDeleteDialog}
         onDelete={handleDeleteMovie}
       />
+      <EditMovieDialog open={isOpenEditDialog} onClose={onCloseConfirmEditDialog} onClick={handleConfirmEditMovie} />
     </Box>
   );
 };

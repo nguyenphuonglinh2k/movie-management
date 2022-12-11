@@ -3,7 +3,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import MainLayout from "layouts/MainLayout";
-import { CreateUserDialog, MovieList, SearchBar } from "components";
+import { AddMovieDialog, MovieList, SearchBar } from "components";
 
 const Movies = () => {
   const classes = useStyles();
@@ -30,7 +30,7 @@ const Movies = () => {
         </Box>
       </Container>
 
-      <CreateUserDialog open={openDialog} onClose={() => setOpenDialog(false)} />
+      <AddMovieDialog open={openDialog} onClose={() => setOpenDialog(false)} />
     </MainLayout>
   );
 };
